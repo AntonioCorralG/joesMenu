@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <script type="text/javascript">
+        let joeAssociative = [];
+
+        joeAssociative["hotdogs"] = 4;
+
+        joeAssociative["fries"] = 3.5;
+
+        joeAssociative["soda"] = 1.5;
+
+        joeAssociative["sauerkraut"] = 1;
+
+        console.log(joeAssociative);
+
+        let joeJSON = {
+          hotdogs: 4,
+
+          fries: 3.5,
+
+          soda: 1.5,
+
+          sauerkraut: 1,
+        };
+
+        console.log(joeJSON);
+
+        function JoeMenuItem(name, price) {
+          this.name = name;
+
+          this.price = price;
+        }
+
+        let joeMenuItems = [
+          new JoeMenuItem("hotdogs", 4),
+
+          new JoeMenuItem("fries", 3.5),
+
+          new JoeMenuItem("soda", 1.5),
+
+          new JoeMenuItem("sauerkraut", 1),
+        ];
+
+        function displayMenuJSON() {
+          let menu = document.createElement("ul");
+
+          for (let item in joeJSON) {
+            let listItem = document.createElement("li");
+
+            listItem.innerHTML = `${item} - $${joeJSON[item]}`;
+
+            menu.appendChild(listItem);
+          }
+
+          document.getElementById("container").appendChild(menu);
+        }
+
+        displayMenuJSON();
+
+        function displayMenuArrayOfObj() {
+          let menu = document.createElement("ul");
+
+          for (let i = 0; i < joeMenuItems.length; i++) {
+            let listItem = document.createElement("li");
+
+            listItem.innerHTML = `${joeMenuItems[i].name} - $${joeMenuItems[i].price}`;
+
+            menu.appendChild(listItem);
+          }
+
+          document.getElementById("container").appendChild(menu);
+        }
+
+        displayMenuArrayOfObj();
+      </script>
+    </div>
+  </body>
+</html>
